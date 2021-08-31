@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: grafana
+  namespace: default
+spec:
+  destination:
+    server: {{ .Values.destinationServer }}
+  project: default
+  source:
+    chart: grafana
+    repoURL: https://grafana.github.io/helm-charts
+    targetRevision: 6.16.2
+    helm:
+      # non-secret values go here
+      values: |
+        service:
+          type: LoadBalancer
+      # secret values will be sourced from the mounted secret into the argocd repo-server
+      valueFiles:
+        - /helm-values/grafana-values.yaml
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
