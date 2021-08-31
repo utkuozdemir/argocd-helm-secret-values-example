@@ -14,7 +14,7 @@ spec:
     helm:
       # secret values will be sourced from the mounted secret into the argocd repo-server
       valueFiles:
-        - /helm-values/postgresql-values.yaml
+        - /helm-values/postgresql.yaml
   syncPolicy:
     automated:
       prune: true

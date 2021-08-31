@@ -18,7 +18,7 @@ spec:
           type: LoadBalancer
       # secret values will be sourced from the mounted secret into the argocd repo-server
       valueFiles:
-        - /helm-values/grafana-values.yaml
+        - /helm-values/grafana.yaml
   syncPolicy:
     automated:
       prune: true
