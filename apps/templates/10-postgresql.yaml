@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: postgresql
-  namespace: default
+  namespace: argocd
 spec:
   destination:
     server: {{ .Values.destinationServer }}
